@@ -19,7 +19,7 @@
     <distributionManagement>
         <repository>
             <id>local-repo-clone</id>
-            <url>file:///home/afsina/projects/maven-repo</url>
+            <url>file:///home/kodlab/projects/maven-repo</url>
         </repository>
     </distributionManagement>
 
@@ -59,17 +59,17 @@
         <dependency>
             <groupId>zemberek-nlp</groupId>
             <artifactId>core</artifactId>
-            <version>0.9.0</version>
+            <version>0.9.1</version>
         </dependency>
         <dependency>
             <groupId>zemberek-nlp</groupId>
             <artifactId>tokenization</artifactId>
-            <version>0.9.0</version>
+            <version>0.9.1</version>
         </dependency>
         <dependency>
             <groupId>zemberek-nlp</groupId>
             <artifactId>morphology</artifactId>
-            <version>0.9.0</version>
+            <version>0.9.1</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

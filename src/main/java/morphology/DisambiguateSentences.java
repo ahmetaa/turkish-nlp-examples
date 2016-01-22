@@ -1,8 +1,8 @@
 package morphology;
 
 import zemberek.morphology.ambiguity.Z3MarkovModelDisambiguator;
-import zemberek.morphology.apps.TurkishMorphParser;
 import zemberek.morphology.apps.TurkishSentenceParser;
+import zemberek.morphology.apps.TurkishWordParserGenerator;
 import zemberek.morphology.parser.MorphParse;
 import zemberek.morphology.parser.SentenceMorphParse;
 
@@ -39,13 +39,13 @@ public class DisambiguateSentences {
     }
 
     public static void main(String[] args) throws IOException {
-        TurkishMorphParser morphParser = TurkishMorphParser.createWithDefaults();
+        TurkishWordParserGenerator morphParser = TurkishWordParserGenerator.createWithDefaults();
         Z3MarkovModelDisambiguator disambiguator = new Z3MarkovModelDisambiguator();
         TurkishSentenceParser sentenceParser = new TurkishSentenceParser(
                 morphParser,
                 disambiguator
         );
         new DisambiguateSentences(sentenceParser)
-                .parseAndDisambiguate("Kırmızı kalemi al.");
+                .parseAndDisambiguate("Kırmızı kalemi al 2.2'ye 2,2'ye Priştine'ye.");
     }
 }
