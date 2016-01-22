@@ -30,8 +30,8 @@ public class GenerateWords {
     public static void main(String[] args) throws IOException {
 
         TurkishWordParserGenerator parserGenerator = TurkishWordParserGenerator.createWithDefaults();
-        DictionaryItem yumy = parserGenerator.getLexicon().getItemById("poğaça_Noun");
-        new GenerateWords(parserGenerator).regenerate("simidime", yumy);
+        DictionaryItem yummy = parserGenerator.getLexicon().getItemById("poğaça_Noun");
+        new GenerateWords(parserGenerator).regenerate("simidime", yummy);
     }
 
 }
