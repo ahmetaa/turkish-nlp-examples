@@ -20,7 +20,7 @@ public class AddNewDictionaryItem {
         DictionaryItem item =
                 new DictionaryItem("tweetlemek", "tweetle", "tivitle", PrimaryPos.Verb, SecondaryPos.None);
         parserGenerator.getGraph().addDictionaryItem(item);
-        parserGenerator.invalidateCache();
+        parserGenerator.invalidateCache(input);
         List<MorphParse> after = parserGenerator.parse(input);
         System.out.println("Parses for " + input + " after adding lemma `tweetleyeyazdım` = " + after);
     }
