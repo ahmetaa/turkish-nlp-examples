@@ -16,7 +16,7 @@ public class ParseWords {
 
     public void parse(String word) {
         System.out.println("Word = " + word);
-        List<MorphParse> parses = parser.parseCached(word);
+        List<MorphParse> parses = parser.parse(word);
         for (MorphParse parse : parses) {
             System.out.println(parse.formatLong());
             System.out.println(parse.formatNoEmpty());

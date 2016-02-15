@@ -17,7 +17,7 @@ public class StemmingAndLemmatization {
         System.out.println("Word = " + word);
 
         System.out.println("Parses: ");
-        List<MorphParse> parses = parser.parseCached(word);
+        List<MorphParse> parses = parser.parse(word);
         for (MorphParse parse : parses) {
             System.out.println(parse.formatLong());
             System.out.println("\tStems = " + parse.getStems());
