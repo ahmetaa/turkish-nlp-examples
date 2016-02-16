@@ -16,12 +16,12 @@ public class AddNewDictionaryItem {
         TurkishWordParserGenerator parserGenerator = TurkishWordParserGenerator.createWithDefaults();
         String input = "tweetleyeyazdım";
         List<MorphParse> before = parserGenerator.parse(input);
-        System.out.println("Parses for " + input + " before adding lemma `tweetleyeyazdım` = " + before);
+        System.out.println("Parses for " + input + " before adding lemma `tweetlemek` = " + before);
         DictionaryItem item =
                 new DictionaryItem("tweetlemek", "tweetle", "tivitle", PrimaryPos.Verb, SecondaryPos.None);
         parserGenerator.getGraph().addDictionaryItem(item);
         parserGenerator.invalidateCache(input);
         List<MorphParse> after = parserGenerator.parse(input);
-        System.out.println("Parses for " + input + " after adding lemma `tweetleyeyazdım` = " + after);
+        System.out.println("Parses for " + input + " after adding lemma `tweetlemek` = " + after);
     }
 }
