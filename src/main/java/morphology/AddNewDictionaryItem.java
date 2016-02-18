@@ -2,9 +2,9 @@ package morphology;
 
 import zemberek.core.turkish.PrimaryPos;
 import zemberek.core.turkish.SecondaryPos;
-import zemberek.morphology.apps.TurkishWordParserGenerator;
 import zemberek.morphology.lexicon.DictionaryItem;
 import zemberek.morphology.parser.MorphParse;
+import zemberek.morphology.parser.tr.TurkishWordParserGenerator;
 
 import java.io.IOException;
 import java.util.List;

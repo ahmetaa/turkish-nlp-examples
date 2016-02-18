@@ -1,12 +1,13 @@
 package morphology;
 
 import zemberek.morphology.ambiguity.Z3MarkovModelDisambiguator;
-import zemberek.morphology.apps.TurkishSentenceParser;
-import zemberek.morphology.apps.TurkishWordParserGenerator;
 import zemberek.morphology.parser.MorphParse;
 import zemberek.morphology.parser.SentenceMorphParse;
+import zemberek.morphology.parser.tr.TurkishSentenceParser;
+import zemberek.morphology.parser.tr.TurkishWordParserGenerator;
 
 import java.io.IOException;
+import java.util.List;
 
 public class DisambiguateSentences {
 
@@ -20,11 +21,13 @@ public class DisambiguateSentences {
         System.out.println("Sentence  = " + sentence);
         SentenceMorphParse sentenceParse = sentenceParser.parse(sentence);
 
+
         System.out.println("Before disambiguation.");
         writeParseResult(sentenceParse);
 
         System.out.println("\nAfter disambiguation.");
         sentenceParser.disambiguate(sentenceParse);
+
         writeParseResult(sentenceParse);
 
     }
@@ -46,6 +49,11 @@ public class DisambiguateSentences {
                 disambiguator
         );
         new DisambiguateSentences(sentenceParser)
-                .parseAndDisambiguate("Kırmızı kalemi al 2.2'ye 2,2'ye Priştine'ye.");
+                .parseAndDisambiguate("86 lira harcardım.");
+
+        List<MorphParse> res = sentenceParser.bestParse("Pirinç Kasım ayına göre 86, kuşbaşı et 9, beyazpeynir 16, 86, yoğurt 11, bal 10 kuruş arttı.");
+        for (MorphParse re : res) {
+            System.out.println(re);
+        }
     }
 }
