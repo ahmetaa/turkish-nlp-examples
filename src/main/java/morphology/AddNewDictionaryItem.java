@@ -13,41 +13,30 @@ import java.util.List;
 
 public class AddNewDictionaryItem {
 
-    static void addProperNoun() throws IOException {
-        TurkishWordParserGenerator parserGenerator = TurkishWordParserGenerator.createWithDefaults();
-        String input = "Meydan'a";
+    TurkishWordParserGenerator parserGenerator;
+
+    public AddNewDictionaryItem(TurkishWordParserGenerator parserGenerator) {
+        this.parserGenerator = parserGenerator;
+    }
+
+    void addNewDictionaryItemTest(String input, DictionaryItem newItem) throws IOException {
 
         List<MorphParse> before = parserGenerator.parse(input);
         System.out.println("Parses for " + input + " before adding lemma :");
         printResults(before);
 
         // This must be called. So that parser forgets the old results. Due to a small bug,
-        // parserGenerator.invalidateCache(input); does not work.
+        // parserGenerator.invalidateCache(input); does not work for proper nouns.
         parserGenerator.invalidateAllCache();
 
-        DictionaryItem item =
-                new DictionaryItem("Meydan", "meydan", "meydan", PrimaryPos.Noun, SecondaryPos.ProperNoun);
-        parserGenerator.getGraph().addDictionaryItem(item);
+        parserGenerator.getGraph().addDictionaryItem(newItem);
 
         List<MorphParse> after = parserGenerator.parse(input);
         System.out.println("Parses for " + input + " after adding lemma :");
         printResults(after);
     }
 
-    private static void addVerb() throws IOException {
-        TurkishWordParserGenerator parserGenerator = TurkishWordParserGenerator.createWithDefaults();
-        String input = "tweetleyeyazdım";
-        List<MorphParse> before = parserGenerator.parse(input);
-        System.out.println("Parses for " + input + " before adding lemma `tweetlemek` = " + before);
-        DictionaryItem item =
-                new DictionaryItem("tweetlemek", "tweetle", "tivitle", PrimaryPos.Verb, SecondaryPos.None);
-        parserGenerator.getGraph().addDictionaryItem(item);
-        parserGenerator.invalidateCache(input);
-        List<MorphParse> after = parserGenerator.parse(input);
-        System.out.println("Parses for " + input + " after adding lemma `tweetlemek` = " + after);
-    }
-
-    private static void printResults(List<MorphParse> before) {
+    private void printResults(List<MorphParse> before) {
         int i = 1;
         for (MorphParse morphParse : before) {
             String str = morphParse.formatLong();
@@ -60,7 +49,22 @@ public class AddNewDictionaryItem {
     }
 
     public static void main(String[] args) throws IOException {
-        //addVerb();
-        addProperNoun();
+
+        AddNewDictionaryItem app = new AddNewDictionaryItem(TurkishWordParserGenerator.createWithDefaults());
+
+        System.out.println("Proper Noun Test - 1 :");
+        app.addNewDictionaryItemTest("Meydan'a",
+                new DictionaryItem("Meydan", "meydan", "meydan", PrimaryPos.Noun, SecondaryPos.ProperNoun));
+        System.out.println();
+
+        System.out.println("Proper Noun Test - 2 :");
+        app.addNewDictionaryItemTest("Meeeydan'a",
+                new DictionaryItem("Meeeydan", "meeeydan", "meeeydan", PrimaryPos.Noun, SecondaryPos.ProperNoun));
+        System.out.println();
+
+        System.out.println("Verb Test : ");
+        app.addNewDictionaryItemTest("tweetleyeyazdım",
+                new DictionaryItem("tweetlemek", "tweetle", "tivitle", PrimaryPos.Verb, SecondaryPos.None));
+
     }
 }
