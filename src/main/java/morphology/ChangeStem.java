@@ -28,8 +28,8 @@ public class ChangeStem {
 
     public static void main(String[] args) throws IOException {
         TurkishWordParserGenerator parserGenerator = TurkishWordParserGenerator.createWithDefaults();
-        DictionaryItem yummy = parserGenerator.getLexicon().getMatchingItems("poğaça").get(0);
-        new ChangeStem(parserGenerator).regenerate("simidime", yummy);
+        DictionaryItem newStem = parserGenerator.getLexicon().getMatchingItems("poğaça").get(0);
+        new ChangeStem(parserGenerator).regenerate("simidime", newStem);
     }
 
 }
