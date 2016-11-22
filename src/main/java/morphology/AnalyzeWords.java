@@ -6,27 +6,28 @@ import zemberek.morphology.analysis.tr.TurkishMorphology;
 import java.io.IOException;
 import java.util.List;
 
-public class StemmingAndLemmatization {
+public class AnalyzeWords {
+
     TurkishMorphology morphology;
 
-    public StemmingAndLemmatization(TurkishMorphology morphology) {
+    public AnalyzeWords(TurkishMorphology morphology) {
         this.morphology = morphology;
     }
 
     public void analyze(String word) {
         System.out.println("Word = " + word);
-
-        System.out.println("Parses: ");
         List<WordAnalysis> results = morphology.analyze(word);
         for (WordAnalysis result : results) {
             System.out.println(result.formatLong());
-            System.out.println("\tStems = " + result.getStems());
-            System.out.println("\tLemmas = " + result.getLemmas());
+            System.out.println(result.formatNoEmpty());
+            System.out.println(result.formatOflazer());
+            System.out.println(result.formatOnlyIgs());
         }
     }
 
     public static void main(String[] args) throws IOException {
         TurkishMorphology morphology = TurkishMorphology.createWithDefaults();
-        new StemmingAndLemmatization(morphology).analyze("kitabımızsa");
+        new AnalyzeWords(morphology).analyze("kalemi");
     }
+
 }

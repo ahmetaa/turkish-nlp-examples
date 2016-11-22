@@ -1,59 +1,52 @@
 package morphology;
 
 import zemberek.morphology.ambiguity.Z3MarkovModelDisambiguator;
-import zemberek.morphology.parser.MorphParse;
-import zemberek.morphology.parser.SentenceMorphParse;
-import zemberek.morphology.parser.tr.TurkishSentenceParser;
-import zemberek.morphology.parser.tr.TurkishWordParserGenerator;
+import zemberek.morphology.analysis.SentenceAnalysis;
+import zemberek.morphology.analysis.WordAnalysis;
+import zemberek.morphology.analysis.tr.TurkishMorphology;
+import zemberek.morphology.analysis.tr.TurkishSentenceAnalyzer;
 
 import java.io.IOException;
-import java.util.List;
 
 public class DisambiguateSentences {
 
-    TurkishSentenceParser sentenceParser;
+    TurkishSentenceAnalyzer sentenceAnalyzer;
 
-    public DisambiguateSentences(TurkishSentenceParser sentenceParser) {
-        this.sentenceParser = sentenceParser;
+    public DisambiguateSentences(TurkishSentenceAnalyzer sentenceAnalyzer) {
+        this.sentenceAnalyzer = sentenceAnalyzer;
     }
 
-    void parseAndDisambiguate(String sentence) {
+    void analyzeAndDisambiguate(String sentence) {
         System.out.println("Sentence  = " + sentence);
-        SentenceMorphParse sentenceParse = sentenceParser.parse(sentence);
-
+        SentenceAnalysis result = sentenceAnalyzer.analyze(sentence);
 
         System.out.println("Before disambiguation.");
-        writeParseResult(sentenceParse);
+        writeParseResult(result);
 
         System.out.println("\nAfter disambiguation.");
-        sentenceParser.disambiguate(sentenceParse);
+        sentenceAnalyzer.disambiguate(result);
 
-        writeParseResult(sentenceParse);
+        writeParseResult(result);
 
     }
 
-    private void writeParseResult(SentenceMorphParse sentenceParse) {
-        for (SentenceMorphParse.Entry entry : sentenceParse) {
+    private void writeParseResult(SentenceAnalysis sentenceAnalysis) {
+        for (SentenceAnalysis.Entry entry : sentenceAnalysis) {
             System.out.println("Word = " + entry.input);
-            for (MorphParse parse : entry.parses) {
-                System.out.println(parse.formatLong());
+            for (WordAnalysis analysis : entry.parses) {
+                System.out.println(analysis.formatLong());
             }
         }
     }
 
     public static void main(String[] args) throws IOException {
-        TurkishWordParserGenerator morphParser = TurkishWordParserGenerator.createWithDefaults();
+        TurkishMorphology morphology = TurkishMorphology.createWithDefaults();
         Z3MarkovModelDisambiguator disambiguator = new Z3MarkovModelDisambiguator();
-        TurkishSentenceParser sentenceParser = new TurkishSentenceParser(
-                morphParser,
+        TurkishSentenceAnalyzer sentenceAnalyzer = new TurkishSentenceAnalyzer(
+                morphology,
                 disambiguator
         );
-        new DisambiguateSentences(sentenceParser)
-                .parseAndDisambiguate("86 lira harcardım.");
-
-        List<MorphParse> res = sentenceParser.bestParse("Pirinç Kasım ayına göre 86, kuşbaşı et 9, beyazpeynir 16, 86, yoğurt 11, bal 10 kuruş arttı.");
-        for (MorphParse re : res) {
-            System.out.println(re);
-        }
+        new DisambiguateSentences(sentenceAnalyzer)
+                .analyzeAndDisambiguate("86 lira harcardım.");
     }
 }

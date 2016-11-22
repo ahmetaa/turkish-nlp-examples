@@ -1,35 +1,35 @@
 package morphology;
 
+import zemberek.morphology.analysis.WordAnalysis;
+import zemberek.morphology.analysis.tr.TurkishMorphology;
 import zemberek.morphology.lexicon.DictionaryItem;
-import zemberek.morphology.parser.MorphParse;
-import zemberek.morphology.parser.tr.TurkishWordParserGenerator;
 
 import java.io.IOException;
 import java.util.List;
 
 public class ChangeStem {
 
-    TurkishWordParserGenerator parserGenerator;
+    TurkishMorphology morphology;
 
-    public ChangeStem(TurkishWordParserGenerator parserGenerator) {
-        this.parserGenerator = parserGenerator;
+    public ChangeStem(TurkishMorphology morphology) {
+        this.morphology = morphology;
     }
 
     public void regenerate(String word, DictionaryItem lemma) {
         System.out.println("Word = " + word);
-        List<MorphParse> parses = parserGenerator.parse(word);
-        for (MorphParse parse : parses) {
-            String[] generated = parserGenerator.getGenerator().generate(lemma, parse.getSuffixes());
+        List<WordAnalysis> results = morphology.analyze(word);
+        for (WordAnalysis result : results) {
+            String[] generated = morphology.getGenerator().generate(lemma, result.getSuffixes());
             for (String s : generated) {
-                System.out.println("Generated for " + parse.formatLong() + " with item " + lemma + " = " + s);
+                System.out.println("Generated for " + result.formatLong() + " with item " + lemma + " = " + s);
             }
         }
     }
 
     public static void main(String[] args) throws IOException {
-        TurkishWordParserGenerator parserGenerator = TurkishWordParserGenerator.createWithDefaults();
-        DictionaryItem newStem = parserGenerator.getLexicon().getMatchingItems("poğaça").get(0);
-        new ChangeStem(parserGenerator).regenerate("simidime", newStem);
+        TurkishMorphology morphology = TurkishMorphology.createWithDefaults();
+        DictionaryItem newStem = morphology.getLexicon().getMatchingItems("poğaça").get(0);
+        new ChangeStem(morphology).regenerate("simidime", newStem);
     }
 
 }
