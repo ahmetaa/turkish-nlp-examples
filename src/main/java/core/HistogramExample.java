@@ -1,6 +1,6 @@
 package core;
 
-import zemberek.core.Histogram;
+import zemberek.core.collections.Histogram;
 
 import java.util.Arrays;
 
