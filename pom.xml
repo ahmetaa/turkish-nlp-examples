@@ -16,12 +16,14 @@
         </repository>
     </repositories>
 
+<!--
     <distributionManagement>
         <repository>
             <id>local-repo-clone</id>
             <url>file:///home/kodlab/projects/maven-repo</url>
         </repository>
     </distributionManagement>
+-->
 
     <build>
         <plugins>
@@ -59,17 +61,17 @@
         <dependency>
             <groupId>zemberek-nlp</groupId>
             <artifactId>core</artifactId>
-            <version>0.10.0</version>
+            <version>0.11.0</version>
         </dependency>
         <dependency>
             <groupId>zemberek-nlp</groupId>
             <artifactId>tokenization</artifactId>
-            <version>0.10.0</version>
+            <version>0.11.0</version>
         </dependency>
         <dependency>
             <groupId>zemberek-nlp</groupId>
             <artifactId>morphology</artifactId>
-            <version>0.10.0</version>
+            <version>0.11.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

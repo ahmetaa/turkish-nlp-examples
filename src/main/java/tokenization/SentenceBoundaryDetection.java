@@ -1,7 +1,6 @@
 package tokenization;
 
-import zemberek.tokenizer.SentenceBoundaryDetector;
-import zemberek.tokenizer.SimpleSentenceBoundaryDetector;
+import zemberek.tokenization.TurkishSentenceExtractor;
 
 import java.util.List;
 
@@ -11,8 +10,8 @@ public class SentenceBoundaryDetection {
         String input = "Prof. Dr. Veli Davul açıklama yaptı. Kimse %6.5 lik enflasyon oranını beğenmemiş!" +
                 " Oysa maçta ikinci olmuştuk... Değil mi?";
         System.out.println("Paragraph = " + input);
-        SentenceBoundaryDetector detector = new SimpleSentenceBoundaryDetector();
-        List<String> sentences = detector.getSentences(input);
+        TurkishSentenceExtractor extractor = TurkishSentenceExtractor.DEFAULT;
+        List<String> sentences = extractor.fromParagraph(input);
         System.out.println("Sentences:");
         for (String sentence : sentences) {
             System.out.println(sentence);
