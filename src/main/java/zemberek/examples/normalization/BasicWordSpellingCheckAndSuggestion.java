@@ -6,7 +6,7 @@ import zemberek.normalization.TurkishSpellChecker;
 
 import java.io.IOException;
 
-public class SpellingExamples {
+public class BasicWordSpellingCheckAndSuggestion {
 
   public static void main(String[] args) throws IOException {
     TurkishMorphology morphology = TurkishMorphology.createWithDefaults();
