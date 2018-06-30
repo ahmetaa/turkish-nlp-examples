@@ -1,10 +1,9 @@
 package zemberek.examples.normalization;
 
+import java.io.IOException;
 import zemberek.core.logging.Log;
 import zemberek.morphology.TurkishMorphology;
 import zemberek.normalization.TurkishSpellChecker;
-
-import java.io.IOException;
 
 public class BasicWordSpellingCheckAndSuggestion {
 

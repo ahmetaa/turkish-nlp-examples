@@ -1,11 +1,10 @@
 package zemberek.examples.tokenization;
 
 import com.google.common.base.Joiner;
+import java.util.Iterator;
 import org.antlr.v4.runtime.Token;
 import zemberek.core.logging.Log;
 import zemberek.tokenization.TurkishTokenizer;
-
-import java.util.Iterator;
 
 public class TurkishTokenizationExample {
 

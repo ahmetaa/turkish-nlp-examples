@@ -1,5 +1,7 @@
 package zemberek.examples.morphology;
 
+import java.io.IOException;
+import java.util.List;
 import zemberek.core.logging.Log;
 import zemberek.morphology.TurkishMorphology;
 import zemberek.morphology.analysis.SingleAnalysis;
@@ -7,12 +9,9 @@ import zemberek.morphology.analysis.WordAnalysis;
 import zemberek.morphology.generator.WordGenerator.Result;
 import zemberek.morphology.lexicon.DictionaryItem;
 
-import java.io.IOException;
-import java.util.List;
-
 public class ChangeStem {
 
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) {
     TurkishMorphology morphology = TurkishMorphology.createWithDefaults();
     DictionaryItem newStem = morphology.getLexicon().getMatchingItems("poğaça").get(0);
 

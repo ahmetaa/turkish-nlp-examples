@@ -1,9 +1,8 @@
 package zemberek.examples.core;
 
+import java.util.Arrays;
 import zemberek.core.collections.Histogram;
 import zemberek.core.logging.Log;
-
-import java.util.Arrays;
 
 public class HistogramExample {
 

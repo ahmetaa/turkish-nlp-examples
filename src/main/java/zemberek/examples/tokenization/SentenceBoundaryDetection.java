@@ -1,9 +1,8 @@
 package zemberek.examples.tokenization;
 
+import java.util.List;
 import zemberek.core.logging.Log;
 import zemberek.tokenization.TurkishSentenceExtractor;
-
-import java.util.List;
 
 public class SentenceBoundaryDetection {
 

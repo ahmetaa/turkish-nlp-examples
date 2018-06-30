@@ -1,17 +1,15 @@
 package zemberek.examples.morphology;
 
+import java.util.List;
 import zemberek.core.logging.Log;
 import zemberek.morphology.TurkishMorphology;
 import zemberek.morphology.analysis.SentenceAnalysis;
 import zemberek.morphology.analysis.SingleAnalysis;
 import zemberek.morphology.analysis.WordAnalysis;
 
-import java.io.IOException;
-import java.util.List;
-
 public class DisambiguateSentences {
 
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) {
 
     TurkishMorphology morphology = TurkishMorphology.createWithDefaults();
 

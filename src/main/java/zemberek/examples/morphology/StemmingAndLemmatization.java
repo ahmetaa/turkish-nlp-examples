@@ -1,15 +1,14 @@
 package zemberek.examples.morphology;
 
-import zemberek.core.logging.Log;
-import zemberek.morphology.TurkishMorphology;
-import zemberek.morphology.analysis.SingleAnalysis;
-import zemberek.morphology.analysis.WordAnalysis;
-
 import java.io.IOException;
+import zemberek.core.logging.Log;
+import zemberek.morphology.analysis.SingleAnalysis;
+import zemberek.morphology.TurkishMorphology;
+import zemberek.morphology.analysis.WordAnalysis;
 
 public class StemmingAndLemmatization {
 
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) {
     TurkishMorphology morphology = TurkishMorphology.createWithDefaults();
 
     String word = "kitabımızsa";

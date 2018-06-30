@@ -1,10 +1,9 @@
 package zemberek.examples.morphology;
 
+import java.util.List;
 import zemberek.morphology.TurkishMorphology;
 import zemberek.morphology.generator.WordGenerator.Result;
 import zemberek.morphology.lexicon.DictionaryItem;
-
-import java.util.List;
 
 public class GenerateWords {
 
