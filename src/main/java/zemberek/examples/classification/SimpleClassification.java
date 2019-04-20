@@ -1,14 +1,13 @@
 package zemberek.examples.classification;
 
-import zemberek.classification.FastTextClassifier;
-import zemberek.core.ScoredItem;
-import zemberek.core.turkish.Turkish;
-import zemberek.tokenization.TurkishTokenizer;
-
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import zemberek.classification.FastTextClassifier;
+import zemberek.core.ScoredItem;
+import zemberek.core.turkish.Turkish;
+import zemberek.tokenization.TurkishTokenizer;
 
 public class SimpleClassification {
 

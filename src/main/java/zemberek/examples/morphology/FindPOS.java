@@ -1,6 +1,5 @@
 package zemberek.examples.morphology;
 
-import java.io.IOException;
 import zemberek.core.logging.Log;
 import zemberek.core.turkish.PrimaryPos;
 import zemberek.morphology.TurkishMorphology;

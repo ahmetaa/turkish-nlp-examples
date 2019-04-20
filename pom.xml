@@ -51,37 +51,37 @@
         <dependency>
             <groupId>zemberek-nlp</groupId>
             <artifactId>zemberek-core</artifactId>
-            <version>0.15.0</version>
+            <version>0.17.0</version>
         </dependency>
         <dependency>
             <groupId>zemberek-nlp</groupId>
             <artifactId>zemberek-tokenization</artifactId>
-            <version>0.15.0</version>
+            <version>0.17.0</version>
         </dependency>
         <dependency>
             <groupId>zemberek-nlp</groupId>
             <artifactId>zemberek-morphology</artifactId>
-            <version>0.15.0</version>
+            <version>0.17.0</version>
         </dependency>
         <dependency>
             <groupId>zemberek-nlp</groupId>
             <artifactId>zemberek-apps</artifactId>
-            <version>0.15.0</version>
+            <version>0.17.0</version>
         </dependency>
         <dependency>
             <groupId>zemberek-nlp</groupId>
             <artifactId>zemberek-classification</artifactId>
-            <version>0.15.0</version>
+            <version>0.17.0</version>
         </dependency>
         <dependency>
             <groupId>zemberek-nlp</groupId>
             <artifactId>zemberek-normalization</artifactId>
-            <version>0.15.0</version>
+            <version>0.17.0</version>
         </dependency>
         <dependency>
             <groupId>zemberek-nlp</groupId>
             <artifactId>zemberek-ner</artifactId>
-            <version>0.15.0</version>
+            <version>0.17.0</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

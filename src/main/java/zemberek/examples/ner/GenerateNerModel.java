@@ -4,12 +4,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import zemberek.core.logging.Log;
 import zemberek.morphology.TurkishMorphology;
 import zemberek.ner.NerDataSet;
 import zemberek.ner.NerDataSet.AnnotationStyle;
 import zemberek.ner.PerceptronNer;
 import zemberek.ner.PerceptronNerTrainer;
 
+/**
+ * This example shows how programmatically train NER model.
+ * Alternatively, {@link zemberek.apps.ner.TrainNerModel} console application can be used.
+ */
 public class GenerateNerModel {
 
   public static void main(String[] args) throws IOException {
@@ -21,10 +26,10 @@ public class GenerateNerModel {
     Path modelRoot = Paths.get("my-model");
 
     NerDataSet trainingSet = NerDataSet.load(trainPath, AnnotationStyle.BRACKET);
-    trainingSet.info(); // prints information
+    Log.info(trainingSet.info()); // prints information
 
     NerDataSet testSet = NerDataSet.load(testPath, AnnotationStyle.BRACKET);
-    testSet.info();
+    Log.info(testSet.info());
 
     TurkishMorphology morphology = TurkishMorphology.createWithDefaults();
 

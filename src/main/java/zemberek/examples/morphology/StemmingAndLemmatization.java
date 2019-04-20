@@ -1,9 +1,8 @@
 package zemberek.examples.morphology;
 
-import java.io.IOException;
 import zemberek.core.logging.Log;
-import zemberek.morphology.analysis.SingleAnalysis;
 import zemberek.morphology.TurkishMorphology;
+import zemberek.morphology.analysis.SingleAnalysis;
 import zemberek.morphology.analysis.WordAnalysis;
 
 public class StemmingAndLemmatization {
@@ -11,7 +10,7 @@ public class StemmingAndLemmatization {
   public static void main(String[] args) {
     TurkishMorphology morphology = TurkishMorphology.createWithDefaults();
 
-    String word = "kitabımızsa";
+    String word = "kutucuğumuz";
 
     Log.info("Word = " + word);
 
